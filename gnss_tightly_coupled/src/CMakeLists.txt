@@ -1,0 +1,18 @@
+PROJECT(IGCoupled_v1.0)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+CMAKE_POLICY(SET CMP0015 NEW)
+
+add_subdirectory(${PROJECT_SOURCE_DIR}/CmnFunc/)
+add_subdirectory(${PROJECT_SOURCE_DIR}/LogInfo/)
+add_subdirectory(${PROJECT_SOURCE_DIR}/ReadFiles/)
+add_subdirectory(${PROJECT_SOURCE_DIR}/DecodeRaw/)
+add_subdirectory(${PROJECT_SOURCE_DIR}/GnssFunc/)
+add_subdirectory(${PROJECT_SOURCE_DIR}/InsFunc/)
+add_subdirectory(${PROJECT_SOURCE_DIR}/Solver/)
+add_subdirectory(${PROJECT_SOURCE_DIR}/AdjFunc/)
+#add_subdirectory(${PROJECT_SOURCE_DIR}/PlotFunc)
+add_subdirectory(${PROJECT_SOURCE_DIR}/OutSol/)
+
+file(GLOB SRC_FILES "*/*.cpp")
+add_library(IGCoupled ${SRC_FILES})
+target_link_libraries(IGCoupled CmnLib ReadLib DecodeRawLib GnssLib InsLib SolverLib AdjLib OutLib)
